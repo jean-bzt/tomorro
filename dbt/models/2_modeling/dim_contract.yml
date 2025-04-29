@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: dim_contract
+    description: >
+      Contrats
+    columns:
+      - name: contract_id
+        description: "ID unique du contrat"
+        tests:
+          - not_null
+          - unique

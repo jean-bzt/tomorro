@@ -1,0 +1,20 @@
+version: 2
+models:
+  - name: organization
+    description: >
+      Datamart organization table
+    columns:
+      - name: organization_id
+        description: "Organization ID"
+        tests:
+          - not_null
+          - unique
+
+      - name: nb_contract_created
+        description: "Number of contracts created"
+
+      - name: first_contract_created_at
+        description: "Date of first contract created"
+
+      - name: last_contract_created_at
+        description: "Date of last contract created"

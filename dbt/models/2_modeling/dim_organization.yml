@@ -1,0 +1,17 @@
+version: 2
+models:
+  - name: dim_organization
+    description: >
+      Organizations
+    columns:
+      - name: organization_id
+        description: "ID unique de l'organisation"
+        tests:
+          - not_null
+          - unique
+
+      - name: name
+        description: "Nom de l'organisation"
+
+      - name: industry
+        description: "Type d'organisation"

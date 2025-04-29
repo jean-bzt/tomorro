@@ -1,0 +1,14 @@
+version: 2
+models:
+  - name: fact_contracts
+    description: >
+      Fact contract table. Listing all contracts lifetime envents
+    columns:
+      - name: contract_id
+        description: "Contract ID"
+
+      - name: organization_id
+        description: "Organization ID"
+
+      - name: created_at
+        description: "Date of creation of the contract"
