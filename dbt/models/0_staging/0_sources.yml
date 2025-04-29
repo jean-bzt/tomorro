@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    database: |
+      {%- if  target.name == "prod" -%} bzt-ingestion-prod
+      {%- elif target.name == "dev"  -%} bzt-ingestion-dev
+      {%- else -%} bzt-ingestion-dev
+      {%- endif -%}
+    schema: raw
+    tables:
+      - name: contract_events
+      - name: organizations

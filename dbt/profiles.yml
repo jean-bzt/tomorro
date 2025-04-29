@@ -1,0 +1,50 @@
+config:
+  partial_parse: false
+  use_colors: true
+  printer_width: 80
+  send_anonymous_usage_stats: false
+
+dbt-profile:
+  target: local
+  outputs:
+    local:
+      type: bigquery
+      project: "bzt-data-dev"
+      dataset: na
+      location: EU
+      priority: interactive
+      threads: 4
+      timeout_seconds: 300
+      fixed_retries: 1
+      method: oauth
+    cicd:
+      type: bigquery
+      project: "bzt-data-dev"
+      dataset: na
+      location: EU
+      priority: interactive
+      threads: 4
+      timeout_seconds: 300
+      fixed_retries: 1
+      method: oauth
+    dev:
+      type: bigquery
+      project: "bzt-data-dev"
+      dataset: na
+      location: EU
+      priority: interactive
+      threads: 4
+      timeout_seconds: 300
+      fixed_retries: 1
+      method: oauth
+    prod:
+      type: bigquery
+      project: "bzt-data-prod"
+      dataset: na
+      location: EU
+      priority: interactive
+      threads: 4
+      timeout_seconds: 300
+      fixed_retries: 1
+      method: oauth
+

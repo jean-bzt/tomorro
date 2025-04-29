@@ -1,0 +1,60 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'tomorro'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'dbt-profile'
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+vars:
+  user_id: "{{ env_var('USER') }}"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/
+# directory as views. These settings can be overridden in the individual model
+# files using the `{{ config(...) }}` macro.
+models:
+  tomorro:
+    # Config indicated by + and applies to all files under models/example/
+    +materialized: table
+    +persist_docs:
+      relation: true
+      columns: true
+
+    0_staging:
+      +tags: 0_staging
+      +labels:
+        level: 0_staging
+      +schema: 0_staging
+
+    1_central:
+      +tags: 1_central
+      +labels:
+        level: 1_central
+      +schema: 1_central
+
+  dbt_artifacts:
+    +schema: monitoring
+    staging:
+      +schema: monitoring
+    sources:
+      +schema: monitoring
