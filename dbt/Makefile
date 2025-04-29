@@ -9,3 +9,7 @@ dbt_run_dev:
 
 dbt_run_prod:
 	@dbt run --profiles-dir . -t prod --full-refresh
+
+dbt_docs:
+	@dbt docs generate --profiles-dir . --target prod
+	@dbt docs serve --profiles-dir .
